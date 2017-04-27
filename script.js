@@ -21,7 +21,13 @@ $('fieldset.question').each((i) => {
         if (yes / validVotes >= 0.75) {
             $curQuestion.addClass('passed');
         } else {
-            $curQuestion.append('<p>This question needs ' + votesTillPassing(yes, validVotes) + ' more votes to pass.</p>');
+            $curQuestion.append($('<p />', {
+                css: {
+                    'text-align': 'center',
+                    'margin': '3px 0px'
+                },
+                text: 'This question needs ' + votesTillPassing(yes, validVotes) + ' more votes to pass.'
+            }));
             $curQuestion.addClass('failed');
         }
 
@@ -34,7 +40,7 @@ $('fieldset.question').each((i) => {
         $ansNo.find('td').eq(1).find('img').eq(1).attr('width', swordWidth(no, validVotes) + 'px');
 
         if (skip)
-            $ansSkip.find('td').eq(1).html('');
+            $ansSkip.find('td').eq(1).find('img').css('opacity', 0);
     }
 });
 
