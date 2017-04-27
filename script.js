@@ -18,10 +18,12 @@ $('fieldset.question').each((i) => {
             skip = parseInt((/\((\d*) votes\)/g).exec(skip)[1]);
         let validVotes = yes + no;
 
-        if (yes / validVotes >= 0.75)
+        if (yes / validVotes >= 0.75) {
             $curQuestion.addClass('passed');
-        else
+        } else {
+            $curQuestion.append('<p>This question needs ' + votesTillPassing(yes, validVotes) + ' more votes to pass.</p>');
             $curQuestion.addClass('failed');
+        }
 
         $ansYes.find('td').eq(2).text(resultString(yes, validVotes));
         $ansNo.find('td').eq(2).text(resultString(no, validVotes));
@@ -43,4 +45,8 @@ function resultString(votes, total) {
 function swordWidth(votes, total) {
     let fullWidth = 202;
     return (votes / total * fullWidth).toFixed(0);
+}
+
+function votesTillPassing(votes, total) {
+    return 3 * total - 4 * votes;
 }
