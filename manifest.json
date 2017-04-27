@@ -1,0 +1,24 @@
+{
+    // Required
+    "manifest_version": 2,
+    "name": "Enhanced Old School RuneScape Poll Results",
+    "author": "MatevzFa",
+
+    "version": "0.0.1",
+    "description": "It makes official poll result pages useful.",
+
+    "content_scripts": [
+        {
+            "css": [
+                "style.css"
+            ],
+            "js": [
+                "jquery.min.js",
+                "script.js"
+            ],
+            "matches": [
+                "http://services.runescape.com/*/oldschool/results.ws?id=*"
+            ]
+        }
+    ]
+}
