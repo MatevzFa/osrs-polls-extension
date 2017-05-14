@@ -5,8 +5,11 @@
     "homepage_url": "https://github.com/MatevzFa/osrs-polls-extension",
 
     "name": "Enhanced Old School RuneScape Poll Results",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "It makes official poll result pages useful.",
+    "icons": {
+        "128": "icon.png"
+    },
 
     "content_scripts": [
         {
